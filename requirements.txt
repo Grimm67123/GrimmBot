@@ -1,0 +1,17 @@
+litellm==1.81.9
+python-dotenv==1.1.0
+pytz==2025.1
+cryptography==44.0.3
+openpyxl==3.1.5
+numpy==2.2.4
+reportlab==4.2.5
+websocket-client==1.7.0
+pyautogui==0.9.54
+python-xlib==0.33
+beautifulsoup4==4.13.4
+lxml==5.4.0
+Pillow==11.1.0
+fastapi
+uvicorn[standard]
+python-multipart
+jinja2

@@ -1,0 +1,49 @@
+# GrimmBot — Docker Compose
+
+services:
+  grimmbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: grimmbot
+    restart: "no"
+    env_file:
+      - .env
+    environment:
+      - TZ=${TIMEZONE:-UTC}
+      - DISPLAY=:99
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./wormhole:/app/wormhole
+      - ./data:/app/data
+      - grimmbot_workspace:/app/workspace
+      - grimmbot_chromium:/home/grimmbot/.config/chromium
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "127.0.0.1:5000:5000"
+      - "127.0.0.1:5900:5900"
+      - "127.0.0.1:6080:6080"
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 4g
+        reservations:
+          memory: 1g
+    shm_size: "2g"
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+volumes:
+  grimmbot_data:
+    driver: local
+  grimmbot_workspace:
+    driver: local
+  grimmbot_chromium:
+    driver: local
