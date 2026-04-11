@@ -54,8 +54,6 @@ COPY core.py agent.py tools.py memory.py scheduler.py screen.py grimmbot.py ./
 # Copy the assets directory (frontend UI)
 COPY assets/ ./assets/
 
-# Copy the tools directory (custom tool scripts)
-COPY tools/ ./tools/
 
 RUN echo '[]' > /app/data/adaptation.json \
     && chown grimmbot:grimmbot /app/data/adaptation.json
