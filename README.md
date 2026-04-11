@@ -55,7 +55,6 @@ Edit `.env` with your model and API key:
 # Local model example (Ollama)
 LLM_MODEL=ollama/gemma3:4b
 OLLAMA_API_BASE=http://host.docker.internal:11434
-# No API key needed — GrimmBot auto-detects the Ollama endpoint
 
 # Cloud model example (Gemini)
 LLM_MODEL=gemini/gemini-2.5-flash
@@ -132,7 +131,7 @@ All learning is stored in the `data/` folder and is portable between machines:
 
 **Which LLMs work?** Any model supported by [LiteLLM](https://github.com/BerriAI/litellm) — Gemini, GPT, Claude, Ollama, LM Studio, Groq, Mistral, and others.
 
-**Can I use fully local/offline models?** Yes. For example, for Ollama, set `LLM_MODEL=ollama/your-model` and GrimmBot connects to your host's Ollama via `host.docker.internal`. No internet needed for the agent itself.
+**Can I use fully local/offline models?** Yes. For example, for Ollama, set `LLM_MODEL=ollama/your-model` and GrimmBot connects to your host's Ollama via `host.docker.internal`. No internet needed for the agent itself. Right now, only Ollama, LocalAI, text gen, vLLM and LM Studio are supported.
 
 **How does the wormhole work?** The `wormhole/` folder is shared between your host and the container. Place files there for the agent to access, or retrieve files the agent creates.
 
