@@ -14,7 +14,7 @@ GrimmBot is an autonomous AI agent that runs inside a sandboxed Docker container
 
 - **🧠 Self-Learning from Mistakes** — When the agent hits an error (blocked command, failed action, wrong approach), it writes a rule to `data/adaptation.json` so it never repeats the same mistake. Rules are retrieved using keyword matching — only rules relevant to the current task are loaded.
 - **🛠️ Custom Tool Creation** — If the agent's built-in tools can't handle a task, it writes and registers a new Python tool on the fly. Custom tools persist across sessions in `data/custom_tools/`.
-- **Zero-Token Monitoring**: Grimmbot bypasses expensive LLM polling by dynamically writing custom Python tools that monitor changes locally, saving API tokens and requests during long-running observation tasks.
+- **👀 Zero-Token Monitoring**: Grimmbot bypasses expensive LLM polling by dynamically writing custom Python tools that monitor changes locally, saving API tokens and requests during long-running observation tasks.
 - **💾 Persistent RAG Memory** — The agent remembers past tasks and outcomes using TF-IDF semantic search. It retrieves relevant past experiences to inform future actions (`data/memory.json`).
 - **⏰ Task Scheduling** — Supports one-time, daily, and interval-based background task scheduling with disk persistence.
 - **👍 Feedback & Dataset Creation** — Rate agent responses with thumbs up/down and export a JSONL dataset for fine-tuning by pressing the button in the UI. **Feedback is restricted to local models only** (Ollama, LM Studio) — the buttons are hidden when using cloud providers.
